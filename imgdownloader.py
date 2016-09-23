@@ -35,6 +35,7 @@ def search(query):
         print 'No Images Found'
         
     print 'Total '+ str(counter) +' images downloaded in '+DIR
+    # 20 images limitation is due to depreciated google search image API,will update more in future
 
 if __name__ == "__main__":
     query = input("Enter yousearch for?  eg: 'Dolphin' ")
