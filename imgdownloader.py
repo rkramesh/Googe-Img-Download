@@ -29,7 +29,6 @@ def search(query):
             
             counter = len([i for i in os.listdir(DIR) if img_name in i]) + 1
             fdata = open(DIR + img_name + "_"+ str(counter)+".jpg", 'wb')
-            print fdata
             print str(counter) +' images found for '+query+'...'
             fdata.write(raw_img)
             fdata.close()
