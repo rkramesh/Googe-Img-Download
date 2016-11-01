@@ -5,7 +5,7 @@ import os
 import requests
 import urllib2
 def search(query):
-    DIR=r"#Enter the dircetory name to save the images"
+    DIR="."
     img_name = query
     counter = 0
     url="https://www.google.co.in/search?q="+query+"&source=lnms&tbm=isch"
@@ -13,7 +13,7 @@ def search(query):
 
     header = {'User-Agent': 'Mozilla/5.0'}
 
-    response = requests.get(url,
+    response = requests.get(url,verify=False,
                                 headers={'User-agent': 'Mozilla/5.0 (Windows NT '
                                                        '6.2; WOW64) AppleWebKit/'
                                                        '537.36 (KHTML, like '
@@ -22,12 +22,14 @@ def search(query):
     soup = bs4.BeautifulSoup(response.content, "html.parser")
 
     images=[tag['src']for tag in soup.find_all('img', {'src': re.compile('gstatic.com')})]
+    
     if images:
         for pic in images:
             raw_img = urllib2.urlopen(pic).read()
             
             counter = len([i for i in os.listdir(DIR) if img_name in i]) + 1
             fdata = open(DIR + img_name + "_"+ str(counter)+".jpg", 'wb')
+            print fdata
             print str(counter) +' images found for '+query+'...'
             fdata.write(raw_img)
             fdata.close()
