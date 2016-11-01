@@ -40,10 +40,6 @@ def search(query):
     # 20 images limitation is due to depreciated google search image API,will update more in future
 
 if __name__ == "__main__":
-    query = input("Enter yousearch for?  eg: 'Dolphin' ")
+    query = input("Enter your search Query?  eg: 'Dolphin' ")#provide the query within quotes
     product_list = search(query)
         
-
-
-  
-     
