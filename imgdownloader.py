@@ -5,7 +5,7 @@ import os
 import requests
 import urllib2
 def search(query):
-    DIR="."
+    DIR="." #downloads the images in the current directory"
     img_name = query
     counter = 0
     url="https://www.google.co.in/search?q="+query+"&source=lnms&tbm=isch"
